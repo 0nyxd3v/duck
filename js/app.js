@@ -41,3 +41,8 @@ function randImg() {
   imgTwo.src = productsArr[imgTwoIdx].img;
   imgThree.src = productsArr[imgThreeIdx].img;
 }
+
+// >>> Create EVENT Handlers <<<
+function handleClick(event) {
+  
+}
