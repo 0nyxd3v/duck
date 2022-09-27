@@ -11,7 +11,9 @@ let imgTwo = document.getElementById('img2');
 let imgThree = document.getElementById('img3');
 
 let resultsBtn = document.getElementById('results-btn');
-let ulContainer = document.getElementById('ulList'); // results container
+
+// >>> canvas element for the chart to render to
+let canvasElement = document.getElementById('my-chart').getContext('2d');
 
 // >>> Create Constructors <<<
 function Products(name, fileExtension = 'jpg') {
