@@ -40,9 +40,20 @@ function randImg() {
   imgOne.src = productsArr[imgOneIdx].img;
   imgTwo.src = productsArr[imgTwoIdx].img;
   imgThree.src = productsArr[imgThreeIdx].img;
+
+  // increment the views property
+  productsArr[imgOneIdx].views++;
+  productsArr[imgTwoIdx].views++;
+  productsArr[imgThreeIdx].views++;
+
+  // assigning alt attribute the name property
+  imgOne.alt = productsArr[imgOneIdx].name;
+  imgTwo.alt = productsArr[imgTwoIdx].name;
+  imgThree.alt = productsArr[imgThreeIdx].name;
+
 }
 
 // >>> Create EVENT Handlers <<<
 function handleClick(event) {
-  
+
 }
