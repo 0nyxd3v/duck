@@ -54,6 +54,36 @@ function randImg() {
 }
 
 // >>> Create EVENT Handlers <<<
-function handleClick(event) {
 
+// Events for image clicked
+function handleClick(event) {
+  let clickedImg = event.target.alt;
+
+  // increments the clicks property of the image that was clicked
+  for (let i = 0; i < productsArr.length; i++) {
+    if (productsArr[i].name === clickedImg) {
+      productsArr[i].clicks++;
+    }
+  }
+
+  // decrements the number of votes
+  voteCount--;
+
+  // invoke the random images generator, to reload new images
+  randImg();
+
+  // once no more vote left, remove/end the click action
+  if (voteCount === 0) {
+    imgDiv.removeEventListener('click', handleClick);
+  }
+}
+
+// Evenets for showing results
+function handleResults() {
+  if (voteCount === 0) {
+    for (let i = 0; i < productsArr.length; i++) {
+      let liElem = document.createElement('li');
+      liElem.textContent = 
+    }
+  }
 }
