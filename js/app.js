@@ -1,7 +1,7 @@
 'use strict';
 
 // >>> Create GLOBAL variables <<<
-let voteCount = 9;
+let voteCount = 6;
 let productsArr = [];
 
 // >>> DOM Manipulation <<<
@@ -36,7 +36,7 @@ function randIdx() {
 function randImg() {
 
   // >>> while condition to make sure 3 images are unique <<<
-  const indexArr = [];
+  const indexArr = []; // [5, 6, 8, 1, 3, 4]
   while(indexArr.length < 6) {
     let imgTwoIdx = randIdx();
     if (!indexArr.includes(imgTwoIdx)) {
