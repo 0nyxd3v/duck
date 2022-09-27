@@ -38,7 +38,7 @@ function randImg() {
   // >>> while condition to make sure 3 images are unique <<<
   // work with TA Ben
   const indexArr = [];
-  while(indexArr.length < 3) {
+  while(indexArr.length < 6) {
     let imgTwoIdx = randIdx();
     if (!indexArr.includes(imgTwoIdx)) {
       indexArr.push(imgTwoIdx);
@@ -48,9 +48,9 @@ function randImg() {
 
 
   // .img >>> contains the filename of images, ex. bag.jpg
-  imgOne.src = productsArr[indexArr[0]].img;
-  imgTwo.src = productsArr[indexArr[1]].img;
-  imgThree.src = productsArr[indexArr[2]].img;
+  // imgOne.src = productsArr[indexArr[0]].img;
+  // imgTwo.src = productsArr[indexArr[1]].img;
+  // imgThree.src = productsArr[indexArr[2]].img;
 
   // increment the views property
   productsArr[indexArr[0]].views++;
