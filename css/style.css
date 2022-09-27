@@ -24,12 +24,6 @@ main {
   height: 350px;
 }
 
-.img-div {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
 img {
   width: 250px;
   height: 250px;
