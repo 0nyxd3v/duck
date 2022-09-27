@@ -5,13 +5,13 @@ let voteCount = 25;
 let productsArr = [];
 
 // >>> DOM Manipulation <<<
-let imgDiv = document.getElementById('img-div');
+let imgDiv = document.getElementById('img-div'); // images container
 let imgOne = document.getElementById('img1');
 let imgTwo = document.getElementById('img2');
 let imgThree = document.getElementById('img3');
 
 let resultsBtn = document.getElementById('results-btn');
-let ulContainer = document.getElementById('ulList'); // resultsContainer
+let ulContainer = document.getElementById('ulList'); // results container
 
 // >>> Create Constructors <<<
 function Products(name, fileExtension = 'jpg') {
@@ -86,6 +86,15 @@ function handleResults() {
 
       // 'banana had 3 votes, and was seen 5 times.'
       liElem.textContent = `${productsArr[i].name} had ${productsArr[i].clicks} votes, and was seen ${productsArr[i].views} times.`;
+      ulContainer.appendChild(liElem);
     }
+    resultsBtn.removeEventListener('click', handleResults);
   }
 }
+
+// >>> Object Creation <<<
+
+
+// >>> Executable Code <<<
+imgDiv.addEventListener('click', handleClick);
+resultsBtn.addEventListener('click', handleResults);
