@@ -32,35 +32,33 @@ function randIdx() {
 
 // function that generates random images
 function randImg() {
-  let imgOneIdx = randIdx();
-  let imgTwoIdx = randIdx();
-  let imgThreeIdx = randIdx();
+
 
   // >>> while condition to make sure 3 images are unique
-  while((imgOneIdx === imgTwoIdx) && (imgOneIdx === imgThreeIdx) && (imgTwoIdx === imgThreeIdx)) {
-    imgTwoIdx = randIdx();
+  const indexArr = [];
+  while(indexArr.length < 3) {
+    let imgTwoIdx = randIdx();
+    if (!indexArr.includes(imgTwoIdx)) {
+      indexArr.push(imgTwoIdx);
+      console.log(imgTwoIdx);
+    }
   }
-
-  // const indexArr = [];
-  // indexArr.push(imgOneIdx, imgTwoIdx, imgThreeIdx);
-
-
 
 
   // .img >>> contains the filename of images, ex. bag.jpg
-  imgOne.src = productsArr[imgOneIdx].img;
-  imgTwo.src = productsArr[imgTwoIdx].img;
-  imgThree.src = productsArr[imgThreeIdx].img;
+  imgOne.src = productsArr[indexArr[0]].img;
+  imgTwo.src = productsArr[indexArr[1]].img;
+  imgThree.src = productsArr[indexArr[2]].img;
 
   // increment the views property
-  productsArr[imgOneIdx].views++;
-  productsArr[imgTwoIdx].views++;
-  productsArr[imgThreeIdx].views++;
+  productsArr[indexArr[0]].views++;
+  productsArr[indexArr[1]].views++;
+  productsArr[indexArr[2]].views++;
 
   // assigning alt attribute the name property
-  imgOne.alt = productsArr[imgOneIdx].name;
-  imgTwo.alt = productsArr[imgTwoIdx].name;
-  imgThree.alt = productsArr[imgThreeIdx].name;
+  imgOne.alt = productsArr[indexArr[0]].name;
+  imgTwo.alt = productsArr[indexArr[1]].name;
+  imgThree.alt = productsArr[indexArr[2]].name;
 
 }
 
