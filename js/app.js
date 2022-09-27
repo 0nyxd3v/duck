@@ -41,7 +41,7 @@ function randImg() {
     let imgTwoIdx = randIdx();
     if (!indexArr.includes(imgTwoIdx)) {
       indexArr.push(imgTwoIdx);
-      // console.log(imgTwoIdx);
+      console.log(imgTwoIdx);
     }
   }
 
