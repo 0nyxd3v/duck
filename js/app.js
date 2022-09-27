@@ -37,7 +37,9 @@ function randImg() {
   // let imgThreeIdx = randIdx();
 
   // >>> while condition to make sure 3 images are unique
-
+  while(imgOneIdx === imgTwoIdx){
+    imgTwoIdx = randIdx();
+  }
 
 
   // .img >>> contains the filename of images, ex. bag.jpg
@@ -83,7 +85,7 @@ function handleClick(event) {
   }
 }
 
-// Evenets for showing results
+// Events for showing results
 function handleResults() {
   if (voteCount === 0) {
     for (let i = 0; i < productsArr.length; i++) {
