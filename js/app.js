@@ -150,13 +150,6 @@ function handleClick(event) {
 // Events for showing results
 function handleResults() {
   if (voteCount === 0) {
-    for (let i = 0; i < productsArr.length; i++) {
-      let liElem = document.createElement('li');
-
-      // 'banana had 3 votes, and was seen 5 times.'
-      liElem.textContent = `${productsArr[i].name} had ${productsArr[i].clicks} votes, and was seen ${productsArr[i].views} times.`;
-      ulContainer.appendChild(liElem);
-    }
     resultsBtn.removeEventListener('click', handleResults);
   }
 }
