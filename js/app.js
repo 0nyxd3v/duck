@@ -8,7 +8,7 @@ let productsArr = [];
 let imgDiv = document.getElementById('img-div'); // images container
 let imgOne = document.getElementById('img1');
 let imgTwo = document.getElementById('img2');
-// let imgThree = document.getElementById('img3');
+let imgThree = document.getElementById('img3');
 
 let resultsBtn = document.getElementById('results-btn');
 let ulContainer = document.getElementById('ulList'); // results container
@@ -34,10 +34,10 @@ function randIdx() {
 function randImg() {
   let imgOneIdx = randIdx();
   let imgTwoIdx = randIdx();
-  // let imgThreeIdx = randIdx();
+  let imgThreeIdx = randIdx();
 
   // >>> while condition to make sure 3 images are unique
-  while(imgOneIdx === imgTwoIdx){
+  while(imgOneIdx === imgTwoIdx || imgOneIdx === imgTwoIdx || imgTwoIdx === imgThreeIdx){
     imgTwoIdx = randIdx();
   }
 
@@ -45,17 +45,17 @@ function randImg() {
   // .img >>> contains the filename of images, ex. bag.jpg
   imgOne.src = productsArr[imgOneIdx].img;
   imgTwo.src = productsArr[imgTwoIdx].img;
-  // imgThree.src = productsArr[imgThreeIdx].img;
+  imgThree.src = productsArr[imgThreeIdx].img;
 
   // increment the views property
   productsArr[imgOneIdx].views++;
   productsArr[imgTwoIdx].views++;
-  // productsArr[imgThreeIdx].views++;
+  productsArr[imgThreeIdx].views++;
 
   // assigning alt attribute the name property
   imgOne.alt = productsArr[imgOneIdx].name;
   imgTwo.alt = productsArr[imgTwoIdx].name;
-  // imgThree.alt = productsArr[imgThreeIdx].name;
+  imgThree.alt = productsArr[imgThreeIdx].name;
 
 }
 
