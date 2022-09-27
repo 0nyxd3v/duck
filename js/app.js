@@ -1,7 +1,7 @@
 'use strict';
 
 // >>> Create GLOBAL variables <<<
-let voteCount = 25;
+let voteCount = 6;
 let productsArr = [];
 
 // >>> DOM Manipulation <<<
@@ -10,8 +10,10 @@ let imgOne = document.getElementById('img1');
 let imgTwo = document.getElementById('img2');
 let imgThree = document.getElementById('img3');
 
-let resultsBtn = document.getElementById('results-btn');
-let ulContainer = document.getElementById('ulList'); // results container
+// let resultsBtn = document.getElementById('results-btn');
+
+// >>> canvas element for the chart to render to
+let canvasElement = document.getElementById('my-chart').getContext('2d');
 
 // >>> Create Constructors <<<
 function Products(name, fileExtension = 'jpg') {
@@ -34,31 +36,91 @@ function randIdx() {
 function randImg() {
 
   // >>> while condition to make sure 3 images are unique <<<
-  // work with TA Ben
-  const indexArr = [];
-  while(indexArr.length < 3) {
+  const indexArr = []; // [5, 6, 8, 1, 3, 4]
+  while(indexArr.length < 6) {
     let imgTwoIdx = randIdx();
     if (!indexArr.includes(imgTwoIdx)) {
       indexArr.push(imgTwoIdx);
-      // console.log(imgTwoIdx);
+      console.log(imgTwoIdx);
     }
   }
 
+  let imgOneIdx = indexArr.shift();
+  let imgTwoIdx = indexArr.shift();
+  let imgThreeIdx = indexArr.shift();
+
 
   // .img >>> contains the filename of images, ex. bag.jpg
-  imgOne.src = productsArr[indexArr[0]].img;
-  imgTwo.src = productsArr[indexArr[1]].img;
-  imgThree.src = productsArr[indexArr[2]].img;
+  imgOne.src = productsArr[imgOneIdx].img;
+  imgTwo.src = productsArr[imgTwoIdx].img;
+  imgThree.src = productsArr[imgThreeIdx].img;
 
   // increment the views property
-  productsArr[indexArr[0]].views++;
-  productsArr[indexArr[1]].views++;
-  productsArr[indexArr[2]].views++;
+  productsArr[imgOneIdx].views++;
+  productsArr[imgTwoIdx].views++;
+  productsArr[imgThreeIdx].views++;
 
   // assigning alt attribute the name property
-  imgOne.alt = productsArr[indexArr[0]].name;
-  imgTwo.alt = productsArr[indexArr[1]].name;
-  imgThree.alt = productsArr[indexArr[2]].name;
+  imgOne.alt = productsArr[imgOneIdx].name;
+  imgTwo.alt = productsArr[imgTwoIdx].name;
+  imgThree.alt = productsArr[imgThreeIdx].name;
+
+}
+
+// >>> create chart function <<<
+
+function renderChart() {
+
+  const productNames = [];
+  const productVotes = [];
+  const productViews = [];
+
+  for (let i = 0; i < productsArr.length; i++) {
+    productNames.push(productsArr[i].name);
+    productVotes.push(productsArr[i].clicks);
+    productViews.push(productsArr[i].views);
+  }
+
+  let myChartObj = {
+    type: 'bar',
+    data: {
+      labels: productNames,
+      datasets: [{
+        data: productVotes,
+        label: '# of Votes',
+        backgroundColor: [
+          '#D7B1A9',
+        ],
+        borderColor: [
+          '#D7B1A9'
+
+        ],
+        borderWidth: 10
+      },
+      {
+        data: productViews,
+        label: '# of Views',
+        backgroundColor: [
+          '#9DAAE8'
+
+        ],
+        borderColor: [
+          '#9DAAE8'
+        ],
+        borderWidth: 10
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  };
+
+  // calling Chart constructor, passing in the canvas element and the data Object
+  new Chart(canvasElement, myChartObj);
 
 }
 
@@ -85,22 +147,16 @@ function handleClick(event) {
   // once no more vote left, remove/end the click action
   if (voteCount === 0) {
     imgDiv.removeEventListener('click', handleClick);
+    renderChart();
   }
 }
 
 // Events for showing results
-function handleResults() {
-  if (voteCount === 0) {
-    for (let i = 0; i < productsArr.length; i++) {
-      let liElem = document.createElement('li');
-
-      // 'banana had 3 votes, and was seen 5 times.'
-      liElem.textContent = `${productsArr[i].name} had ${productsArr[i].clicks} votes, and was seen ${productsArr[i].views} times.`;
-      ulContainer.appendChild(liElem);
-    }
-    resultsBtn.removeEventListener('click', handleResults);
-  }
-}
+// function handleResults() {
+//   if (voteCount === 0) {
+//     resultsBtn.removeEventListener('click', handleResults);
+//   }
+// }
 
 // >>> Object Creation <<<
 new Products('bag');
@@ -127,4 +183,4 @@ new Products('wine-glass');
 // >>> Executable Code <<<
 randImg();
 imgDiv.addEventListener('click', handleClick);
-resultsBtn.addEventListener('click', handleResults);
+// resultsBtn.addEventListener('click', handleResults);

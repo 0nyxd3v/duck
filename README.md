@@ -20,3 +20,7 @@ You are also responsible for the look and feel of the app, so don’t forget a c
 
 - [Lab: Class 11](https://codefellows.github.io/code-201-guide/curriculum/class-11/lab/)
 - Images Pull Request from Ms. Audrey
+
+## Lab 12
+
+Adding Chart to Project that will replace list elements
