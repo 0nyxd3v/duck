@@ -37,9 +37,14 @@ function randImg() {
   let imgThreeIdx = randIdx();
 
   // >>> while condition to make sure 3 images are unique
-  while(imgOneIdx === imgTwoIdx && imgOneIdx === imgTwoIdx && imgTwoIdx === imgThreeIdx){
+  while((imgOneIdx === imgTwoIdx) && (imgOneIdx === imgThreeIdx) && (imgTwoIdx === imgThreeIdx)) {
     imgTwoIdx = randIdx();
   }
+
+  // const indexArr = [];
+  // indexArr.push(imgOneIdx, imgTwoIdx, imgThreeIdx);
+
+
 
 
   // .img >>> contains the filename of images, ex. bag.jpg
