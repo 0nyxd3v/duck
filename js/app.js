@@ -64,6 +64,52 @@ function randImg() {
 
 }
 
+// >>> create chart function <<<
+
+function renderChart() {
+  let myChartObj = {
+    type: 'bar',
+    data: {
+      labels: productNames,
+      datasets: [{
+        data: productVotes,
+        label: '# of Votes',
+        backgroundColor: [
+          '#D7B1A9',
+        ],
+        borderColor: [
+          '#D7B1A9'
+
+        ],
+        borderWidth: 10
+      },
+      {
+        data: productViews,
+        label: '# of Views',
+        backgroundColor: [
+          '#9DAAE8'
+
+        ],
+        borderColor: [
+          '#9DAAE8'
+        ],
+        borderWidth: 10
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  };
+
+  // calling Chart constructor, passing in the canvas element and the data Object
+  new Chart(canvasElement, myChartObj);
+
+}
+
 // >>> Create EVENT Handlers <<<
 
 // Events for image clicked
