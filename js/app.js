@@ -1,7 +1,7 @@
 'use strict';
 
 // >>> Create GLOBAL variables <<<
-let voteCount = 25;
+let voteCount = 5;
 let productsArr = [];
 
 // >>> DOM Manipulation <<<
