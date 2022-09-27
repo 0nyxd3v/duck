@@ -1,7 +1,7 @@
 'use strict';
 
 // >>> Create GLOBAL variables <<<
-let voteCount = 5;
+let voteCount = 9;
 let productsArr = [];
 
 // >>> DOM Manipulation <<<
@@ -36,7 +36,6 @@ function randIdx() {
 function randImg() {
 
   // >>> while condition to make sure 3 images are unique <<<
-  // work with TA Ben
   const indexArr = [];
   while(indexArr.length < 6) {
     let imgTwoIdx = randIdx();
@@ -46,21 +45,25 @@ function randImg() {
     }
   }
 
+  let imgOneIdx = indexArr.shift();
+  let imgTwoIdx = indexArr.shift();
+  let imgThreeIdx = indexArr.shift();
+
 
   // .img >>> contains the filename of images, ex. bag.jpg
-  // imgOne.src = productsArr[indexArr[0]].img;
-  // imgTwo.src = productsArr[indexArr[1]].img;
-  // imgThree.src = productsArr[indexArr[2]].img;
+  imgOne.src = productsArr[imgOneIdx].img;
+  imgTwo.src = productsArr[imgTwoIdx].img;
+  imgThree.src = productsArr[imgThreeIdx].img;
 
   // increment the views property
-  productsArr[indexArr[0]].views++;
-  productsArr[indexArr[1]].views++;
-  productsArr[indexArr[2]].views++;
+  productsArr[imgOneIdx].views++;
+  productsArr[imgTwoIdx].views++;
+  productsArr[imgThreeIdx].views++;
 
   // assigning alt attribute the name property
-  imgOne.alt = productsArr[indexArr[0]].name;
-  imgTwo.alt = productsArr[indexArr[1]].name;
-  imgThree.alt = productsArr[indexArr[2]].name;
+  imgOne.alt = productsArr[imgOneIdx].name;
+  imgTwo.alt = productsArr[imgTwoIdx].name;
+  imgThree.alt = productsArr[imgThreeIdx].name;
 
 }
 
