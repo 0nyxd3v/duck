@@ -144,6 +144,7 @@ function handleClick(event) {
   // once no more vote left, remove/end the click action
   if (voteCount === 0) {
     imgDiv.removeEventListener('click', handleClick);
+    renderChart();
   }
 }
 
