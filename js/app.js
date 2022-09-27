@@ -67,6 +67,17 @@ function randImg() {
 // >>> create chart function <<<
 
 function renderChart() {
+
+  const productNames = [];
+  const productVotes = [];
+  const productViews = [];
+
+  for (let i = 0; i < productsArr.length; i++) {
+    productNames.push(productsArr[i].name);
+    productVotes.push(productsArr[i].clicks);
+    productViews.push(productsArr[i].views);
+  }
+
   let myChartObj = {
     type: 'bar',
     data: {
