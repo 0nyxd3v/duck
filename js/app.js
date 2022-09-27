@@ -11,3 +11,4 @@ let imgTwo = document.getElementById('img2');
 let imgThree = document.getElementById('img3');
 
 let resultsBtn = document.getElementById('results-btn');
+let ulContainer = document.getElementById('ulList');
