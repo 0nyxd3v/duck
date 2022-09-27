@@ -33,14 +33,14 @@ function randIdx() {
 // function that generates random images
 function randImg() {
 
-
-  // >>> while condition to make sure 3 images are unique
+  // >>> while condition to make sure 3 images are unique <<<
+  // work with TA Ben
   const indexArr = [];
   while(indexArr.length < 3) {
     let imgTwoIdx = randIdx();
     if (!indexArr.includes(imgTwoIdx)) {
       indexArr.push(imgTwoIdx);
-      console.log(imgTwoIdx);
+      // console.log(imgTwoIdx);
     }
   }
 
