@@ -10,7 +10,7 @@ let imgOne = document.getElementById('img1');
 let imgTwo = document.getElementById('img2');
 let imgThree = document.getElementById('img3');
 
-let resultsBtn = document.getElementById('results-btn');
+// let resultsBtn = document.getElementById('results-btn');
 
 // >>> canvas element for the chart to render to
 let canvasElement = document.getElementById('my-chart').getContext('2d');
@@ -149,11 +149,11 @@ function handleClick(event) {
 }
 
 // Events for showing results
-function handleResults() {
-  if (voteCount === 0) {
-    resultsBtn.removeEventListener('click', handleResults);
-  }
-}
+// function handleResults() {
+//   if (voteCount === 0) {
+//     resultsBtn.removeEventListener('click', handleResults);
+//   }
+// }
 
 // >>> Object Creation <<<
 new Products('bag');
@@ -180,4 +180,4 @@ new Products('wine-glass');
 // >>> Executable Code <<<
 randImg();
 imgDiv.addEventListener('click', handleClick);
-resultsBtn.addEventListener('click', handleResults);
+// resultsBtn.addEventListener('click', handleResults);
