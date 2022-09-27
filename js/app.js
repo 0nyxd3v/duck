@@ -114,15 +114,7 @@ new Products('water-can');
 new Products('wine-glass');
 
 
-
-
-
-
-
-
-
-
-
 // >>> Executable Code <<<
+randImg();
 imgDiv.addEventListener('click', handleClick);
 resultsBtn.addEventListener('click', handleResults);
