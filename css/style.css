@@ -38,6 +38,8 @@ img {
 .result-section {
   margin-left: 50px;
   margin-top: 50px;
+  width: 500px;
+  height: 500px;
 }
 
 #canvas-div {
