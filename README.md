@@ -1,5 +1,4 @@
 # odd-duck
-# odd-duck
 
 ## Lab: Class 11
 
