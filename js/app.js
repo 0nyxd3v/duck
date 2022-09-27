@@ -37,7 +37,7 @@ function randImg() {
   let imgThreeIdx = randIdx();
 
   // >>> while condition to make sure 3 images are unique
-  while(imgOneIdx === imgTwoIdx || imgOneIdx === imgTwoIdx || imgTwoIdx === imgThreeIdx){
+  while(imgOneIdx === imgTwoIdx && imgOneIdx === imgTwoIdx && imgTwoIdx === imgThreeIdx){
     imgTwoIdx = randIdx();
   }
 
