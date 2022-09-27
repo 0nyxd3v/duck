@@ -1,12 +1,16 @@
 h1 {
   margin-top: 50px;
-  margin-left: 50px;
-  align-items: center;
   font-weight: bold;
   font-size: 50px;
 }
 
-.result-btn {
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.result {
   margin-top: 50px;
   margin-left: 50px;
 }
