@@ -37,6 +37,8 @@ function randImg() {
 
   // >>> while condition to make sure 3 images are unique <<<
   const indexArr = []; // [5, 6, 8, 1, 3, 4]
+  // const slicedArr = indexArr.slice(0, 3);
+
   while(indexArr.length < 6) {
     let imgTwoIdx = randIdx();
     if (!indexArr.includes(imgTwoIdx)) {
