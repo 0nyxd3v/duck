@@ -5,6 +5,12 @@ h1 {
   font-size: 50px;
 }
 
+h2 {
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 50px;
+}
+
 main {
   display: flex;
   align-items: center;
@@ -50,7 +56,7 @@ img {
 
 }
 
-p, #h2-div {
+p {
   color: white;
 }
 
@@ -60,9 +66,3 @@ p, #h2-div {
   height: 350px;
 }
 
-#h2-div {
-  display: flex;
-  /* flex-direction: row; */
-  justify-content: flex-start;
-  margin-top: 10px;
-}
