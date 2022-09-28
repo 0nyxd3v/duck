@@ -27,6 +27,8 @@ main {
 
 .result-section {
   height: 90%;
+  padding: 20px;
+
 }
 
 
@@ -35,12 +37,32 @@ img {
   height: 250px;
 }
 
+.div-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
 #canvas-div {
   width: 600px;
   height: 600px;
   padding: 20px;
+  /* background-color: azure; */
+
 }
 
-p {
+p, #h2-div {
   color: white;
+}
+
+#p-div {
+  padding: 50px;
+  width: 200px;
+  height: 350px;
+}
+
+#h2-div {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: flex-start;
+  margin-top: 10px;
 }
