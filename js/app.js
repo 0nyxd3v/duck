@@ -10,7 +10,8 @@ let imgOne = document.getElementById('img1');
 let imgTwo = document.getElementById('img2');
 let imgThree = document.getElementById('img3');
 
-// let resultsBtn = document.getElementById('results-btn');
+// grabbing div id
+let pDivElem = document.getElementById('p-div');
 
 // >>> canvas element for the chart to render to
 let canvasElement = document.getElementById('my-chart').getContext('2d');
@@ -136,10 +137,15 @@ function handleClick(event) {
   console.dir(event.target);
   let clickedImg = event.target.alt;
 
+
   // increments the clicks property of the image that was clicked
   for (let i = 0; i < productsArr.length; i++) {
+    let pElem = document.createElement('p');
+    pElem.textContent = '';
     if (productsArr[i].name === clickedImg) {
       productsArr[i].clicks++;
+      pElem.textContent = `You picked ${productsArr[i].name}`;
+      pDivElem.appendChild(pElem);
     }
   }
 
