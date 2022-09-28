@@ -27,6 +27,8 @@ function Products(name, fileExtension = 'jpg') {
 
 // >>> Create HELPER functions <<<
 
+// const slicedArr = indexArr.slice(0, 3);
+
 // function that generates random index of productsArr
 function randIdx() {
   return Math.floor(Math.random() * productsArr.length);
@@ -36,8 +38,7 @@ function randIdx() {
 function randImg() {
 
   // >>> while condition to make sure 3 images are unique <<<
-  const indexArr = []; // [5, 6, 8, 1, 3, 4]
-  // const slicedArr = indexArr.slice(0, 3);
+  const indexArr = [];
 
   while(indexArr.length < 6) {
     let imgTwoIdx = randIdx();
@@ -47,25 +48,25 @@ function randImg() {
     }
   }
 
-  let imgOneIdx = indexArr.shift();
-  let imgTwoIdx = indexArr.shift();
-  let imgThreeIdx = indexArr.shift();
+  // let imgOneIdx = indexArr.shift();
+  // let imgTwoIdx = indexArr.shift();
+  // let imgThreeIdx = indexArr.shift();
 
 
   // .img >>> contains the filename of images, ex. bag.jpg
-  imgOne.src = productsArr[imgOneIdx].img;
-  imgTwo.src = productsArr[imgTwoIdx].img;
-  imgThree.src = productsArr[imgThreeIdx].img;
+  imgOne.src = productsArr[indexArr[0]].img;
+  imgTwo.src = productsArr[indexArr[1]].img;
+  imgThree.src = productsArr[indexArr[2]].img;
 
   // increment the views property
-  productsArr[imgOneIdx].views++;
-  productsArr[imgTwoIdx].views++;
-  productsArr[imgThreeIdx].views++;
+  productsArr[indexArr[0]].views++;
+  productsArr[indexArr[1]].views++;
+  productsArr[indexArr[2]].views++;
 
   // assigning alt attribute the name property
-  imgOne.alt = productsArr[imgOneIdx].name;
-  imgTwo.alt = productsArr[imgTwoIdx].name;
-  imgThree.alt = productsArr[imgThreeIdx].name;
+  imgOne.alt = productsArr[indexArr[0]].name;
+  imgTwo.alt = productsArr[indexArr[1]].name;
+  imgThree.alt = productsArr[indexArr[2]].name;
 
 }
 
