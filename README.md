@@ -2,6 +2,10 @@
 
 ## Lab: Class 11
 
+- Created a contructor function that creates an object associated with each product
+- Created a function that generates 3 random unique index
+- attached an event listener to display results, and to listen for clicks/votes
+
 ### Problem Domain
 
 Odd Duck Product Co is trying to decide which project from their R&D department they should invest in next to sell. They asked you to make a web page that they can run at a kiosk at the front entrance of their campus. Whenever an employee walks by, the employee can vote for 1 of the 3 products displayed that they think should be the next new product brought to market. After a week of collecting data, they would like some nice graphs to visualize the results.
@@ -23,4 +27,5 @@ You are also responsible for the look and feel of the app, so don’t forget a c
 
 ## Lab 12
 
-Adding Chart to Project that will replace list elements
+- Adding Chart to Project that will replace list elements
+- updating while loop condition to display three unique images in two subsequent iterations
