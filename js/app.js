@@ -157,8 +157,21 @@ function handleClick(event) {
   if (voteCount === 0) {
     imgDiv.removeEventListener('click', handleClick);
     renderChart();
+
+    // >>> Local Storage <<<
+
+    // Step 1: stringify our data
+    let stringifiedProducts = JSON.stringify(productsArr);
+
+    // Step 2: add our data to local storge
+    localStorage.setItem('myProduct', stringifiedProducts);
   }
 }
+
+// >>>>>> Local Storage <<<<<<<
+
+// Step 3: Pull data out of local storage
+let retrieveProducts = localStorage.getItem('myProduct');
 
 
 // >>> Object Creation <<<
