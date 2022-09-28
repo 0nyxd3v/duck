@@ -34,6 +34,8 @@ function randIdx() {
   return Math.floor(Math.random() * productsArr.length);
 }
 
+const newArr = [];
+
 // function that generates random images
 function randImg() {
 
@@ -44,9 +46,13 @@ function randImg() {
     let imgTwoIdx = randIdx();
     if (!indexArr.includes(imgTwoIdx)) {
       indexArr.push(imgTwoIdx);
+
+      newArr.push(imgTwoIdx);
       console.log(imgTwoIdx);
     }
   }
+
+
 
   // let imgOneIdx = indexArr.shift();
   // let imgTwoIdx = indexArr.shift();
