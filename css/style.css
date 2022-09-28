@@ -9,35 +9,34 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: rgb(192, 200, 206);
+  width: 90%;
+  margin: auto;
+  padding-bottom: 50px;
 }
 
-.result {
-  margin-top: 50px;
-  margin-left: 50px;
-}
-
-.item-container {
+.item-container, .result-section {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 100px;
   background-color: black;
-  height: 350px;
+  height: 450px;
+  width: 80%;
 }
+
+.result-section {
+  height: 90%;
+}
+
 
 img {
   width: 250px;
   height: 250px;
 }
 
-.result-section {
-  margin-left: 50px;
-  margin-top: 50px;
-  width: 500px;
-  height: 500px;
-}
-
 #canvas-div {
-  width: 300px;
-  height: 300px;
+  width: 600px;
+  height: 600px;
+  padding: 20px;
 }
