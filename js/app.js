@@ -173,32 +173,38 @@ function handleClick(event) {
 // Step 3: Pull data out of local storage
 let retrieveProducts = localStorage.getItem('myProduct');
 
-// Step 4: Parse our data into code 
+// Step 4: Parse our data into code
 let parsedProducts = JSON.parse(retrieveProducts);
 
 
-// >>> Object Creation <<<
-new Products('bag');
-new Products('banana');
-new Products('bathroom');
-new Products('boots');
-new Products('breakfast');
-new Products('bubblegum');
-new Products('chair');
-new Products('cthulhu');
-new Products('dog-duck');
-new Products('dragon');
-new Products('pen');
-new Products('pet-sweep');
-new Products('scissors');
-new Products('shark');
-new Products('sweep', 'png');
-new Products('tauntaun');
-new Products('unicorn');
-new Products('water-can');
-new Products('wine-glass');
-
-
 // >>> Executable Code <<<
+
+// >>> Object Creation <<<
+
+// check if item is in our local storage
+if (retrieveProducts) {
+  productsArr = parsedProducts;
+} else {
+  new Products('bag');
+  new Products('banana');
+  new Products('bathroom');
+  new Products('boots');
+  new Products('breakfast');
+  new Products('bubblegum');
+  new Products('chair');
+  new Products('cthulhu');
+  new Products('dog-duck');
+  new Products('dragon');
+  new Products('pen');
+  new Products('pet-sweep');
+  new Products('scissors');
+  new Products('shark');
+  new Products('sweep', 'png');
+  new Products('tauntaun');
+  new Products('unicorn');
+  new Products('water-can');
+  new Products('wine-glass');
+}
+
 randImg();
 imgDiv.addEventListener('click', handleClick);
