@@ -31,18 +31,17 @@ function Products(name, fileExtension = 'jpg') {
 // const slicedArr = indexArr.slice(0, 3);
 
 // function that generates random index of productsArr
+// MDN web docs
 function randIdx() {
   return Math.floor(Math.random() * productsArr.length);
 }
 
 let indexArr = [];
 
-
 // function that generates random images
 function randImg() {
 
   // >>> while condition to make sure 3 images are unique <<<
-
   while(indexArr.length < 6) {
     let imgTwoIdx = randIdx();
     if (!indexArr.includes(imgTwoIdx)) {
