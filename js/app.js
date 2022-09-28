@@ -173,6 +173,9 @@ function handleClick(event) {
 // Step 3: Pull data out of local storage
 let retrieveProducts = localStorage.getItem('myProduct');
 
+// Step 4: Parse our data into code 
+let parsedProducts = JSON.parse(retrieveProducts);
+
 
 // >>> Object Creation <<<
 new Products('bag');
