@@ -1,7 +1,7 @@
 'use strict';
 
 // >>> Create GLOBAL variables <<<
-let voteCount = 6;
+let voteCount = 25;
 let productsArr = [];
 
 // >>> DOM Manipulation <<<
@@ -10,7 +10,8 @@ let imgOne = document.getElementById('img1');
 let imgTwo = document.getElementById('img2');
 let imgThree = document.getElementById('img3');
 
-// let resultsBtn = document.getElementById('results-btn');
+// grabbing HTML elem id
+let pDivElem = document.getElementById('p-div');
 
 // >>> canvas element for the chart to render to
 let canvasElement = document.getElementById('my-chart').getContext('2d');
@@ -27,16 +28,21 @@ function Products(name, fileExtension = 'jpg') {
 
 // >>> Create HELPER functions <<<
 
+// const slicedArr = indexArr.slice(0, 3);
+
 // function that generates random index of productsArr
 function randIdx() {
   return Math.floor(Math.random() * productsArr.length);
 }
 
+let indexArr = [];
+
+
 // function that generates random images
 function randImg() {
 
   // >>> while condition to make sure 3 images are unique <<<
-  const indexArr = []; // [5, 6, 8, 1, 3, 4]
+
   while(indexArr.length < 6) {
     let imgTwoIdx = randIdx();
     if (!indexArr.includes(imgTwoIdx)) {
@@ -133,8 +139,12 @@ function handleClick(event) {
 
   // increments the clicks property of the image that was clicked
   for (let i = 0; i < productsArr.length; i++) {
+    let pElem = document.createElement('p');
+    pElem.textContent = '';
     if (productsArr[i].name === clickedImg) {
       productsArr[i].clicks++;
+      pElem.textContent = `You picked ${productsArr[i].name}`;
+      pDivElem.appendChild(pElem);
     }
   }
 
@@ -151,12 +161,6 @@ function handleClick(event) {
   }
 }
 
-// Events for showing results
-// function handleResults() {
-//   if (voteCount === 0) {
-//     resultsBtn.removeEventListener('click', handleResults);
-//   }
-// }
 
 // >>> Object Creation <<<
 new Products('bag');
@@ -183,4 +187,3 @@ new Products('wine-glass');
 // >>> Executable Code <<<
 randImg();
 imgDiv.addEventListener('click', handleClick);
-// resultsBtn.addEventListener('click', handleResults);
