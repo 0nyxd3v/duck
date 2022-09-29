@@ -143,8 +143,7 @@ function handleVoteAgain() {
   if (voteCount === 0) {
     // randImg();
     imgDiv.removeEventListener('click', handleClick);
-    renderChart();
-
+    // renderChart();
   }
 }
 
