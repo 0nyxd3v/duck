@@ -45,7 +45,7 @@ let indexArr = [];
 function randImg() {
 
   // >>> while condition to make sure 3 images are unique <<<
-  while(indexArr.length < 6) {
+  while (indexArr.length < 6) {
     let imgTwoIdx = randIdx();
     if (!indexArr.includes(imgTwoIdx)) {
       indexArr.push(imgTwoIdx);
@@ -79,62 +79,68 @@ function randImg() {
 
 function renderChart() {
 
-  const productNames = [];
-  const productVotes = [];
-  const productViews = [];
-
-  for (let i = 0; i < productsArr.length; i++) {
-    productNames.push(productsArr[i].name);
-    productVotes.push(productsArr[i].clicks);
-    productViews.push(productsArr[i].views);
-  }
-
-  let myChartObj = {
-    type: 'bar',
-    data: {
-      labels: productNames,
-      datasets: [{
-        data: productVotes,
-        label: '# of Votes',
-        backgroundColor: [
-          '#D7B1A9',
-        ],
-        borderColor: [
-          '#D7B1A9'
-
-        ],
-        borderWidth: 10
-      },
-      {
-        data: productViews,
-        label: '# of Views',
-        backgroundColor: [
-          '#9DAAE8'
-
-        ],
-        borderColor: [
-          '#9DAAE8'
-        ],
-        borderWidth: 10
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  };
-
-  // calling Chart constructor, passing in the canvas element and the data Object
-  new Chart(canvasElement, myChartObj);
 
 }
+
+
+const productNames = [];
+const productVotes = [];
+const productViews = [];
+
+for (let i = 0; i < productsArr.length; i++) {
+  productNames.push(productsArr[i].name);
+  productVotes.push(productsArr[i].clicks);
+  productViews.push(productsArr[i].views);
+}
+
+
+let myChartObj = {
+  type: 'bar',
+  data: {
+    labels: productNames,
+    datasets: [{
+      data: productVotes,
+      label: '# of Votes',
+      backgroundColor: [
+        '#D7B1A9',
+      ],
+      borderColor: [
+        '#D7B1A9'
+
+      ],
+      borderWidth: 10
+    },
+    {
+      data: productViews,
+      label: '# of Views',
+      backgroundColor: [
+        '#9DAAE8'
+
+      ],
+      borderColor: [
+        '#9DAAE8'
+      ],
+      borderWidth: 10
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+
+};
+
+let myChart = new Chart(canvasElement, myChartObj);
+
+
 
 // >>> Create EVENT Handlers <<<
 
 function handleVoteAgain() {
+  // myChart.destroy();
   voteCount = 5;
   randImg();
   imgDiv.addEventListener('click', handleClick);
@@ -143,8 +149,8 @@ function handleVoteAgain() {
   if (voteCount === 0) {
     // randImg();
     imgDiv.removeEventListener('click', handleClick);
-    // renderChart();
   }
+  // renderChart();
 }
 
 // Events for image clicked
@@ -172,7 +178,9 @@ function handleClick(event) {
   // once no more vote left, remove/end the click action
   if (voteCount === 0) {
     imgDiv.removeEventListener('click', handleClick);
-    renderChart();
+    // renderChart();
+    myChart.update();
+    // let myChart = renderChart();
 
     // >>> Local Storage <<<
 
@@ -225,3 +233,70 @@ if (retrieveProducts) {
 randImg();
 imgDiv.addEventListener('click', handleClick);
 voteBtn.addEventListener('click', handleVoteAgain);
+
+console.log(productsArr[0].clicks);
+
+
+
+
+
+// function renderChart() {
+
+// const productNames = [];
+// const productVotes = [];
+// const productViews = [];
+
+// for (let i = 0; i < productsArr.length; i++) {
+//   productNames.push(productsArr[i].name);
+//   productVotes.push(productsArr[i].clicks);
+//   productViews.push(productsArr[i].views);
+// }
+
+// let myChartObj = {
+//   type: 'bar',
+//   data: {
+//     labels: productNames,
+//     datasets: [{
+//       data: productVotes,
+//       label: '# of Votes',
+//       backgroundColor: [
+//         '#D7B1A9',
+//       ],
+//       borderColor: [
+//         '#D7B1A9'
+
+//       ],
+//       borderWidth: 10
+//     },
+//     {
+//       data: productViews,
+//       label: '# of Views',
+//       backgroundColor: [
+//         '#9DAAE8'
+
+//       ],
+//       borderColor: [
+//         '#9DAAE8'
+//       ],
+//       borderWidth: 10
+//     }]
+//   },
+//   options: {
+//     scales: {
+//       y: {
+//         beginAtZero: true
+//       }
+//     }
+//   }
+
+// };
+
+// return myChartObj;
+
+// calling Chart constructor, passing in the canvas element and the data Object
+// new Chart(canvasElement, myChartObj);
+
+// }
+
+
+
