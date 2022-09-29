@@ -1,8 +1,10 @@
 'use strict';
 
 // >>> Create GLOBAL variables <<<
-let voteCount = 25;
+let voteCount = 5;
 let productsArr = [];
+let myChart;
+
 
 // >>> DOM Manipulation <<<
 let imgDiv = document.getElementById('img-div'); // images container
@@ -10,7 +12,11 @@ let imgOne = document.getElementById('img1');
 let imgTwo = document.getElementById('img2');
 let imgThree = document.getElementById('img3');
 
+// grabbing vote button
+let voteBtn = document.getElementById('vote-btn');
+
 // grabbing HTML elem id
+// let pDivElem = document.getElementById('p-div').style.border = 'thick solid #d4b4ca';
 let pDivElem = document.getElementById('p-div');
 
 // >>> canvas element for the chart to render to
@@ -28,7 +34,6 @@ function Products(name, fileExtension = 'jpg') {
 
 // >>> Create HELPER functions <<<
 
-// const slicedArr = indexArr.slice(0, 3);
 
 // function that generates random index of productsArr
 // MDN web docs
@@ -42,7 +47,7 @@ let indexArr = [];
 function randImg() {
 
   // >>> while condition to make sure 3 images are unique <<<
-  while(indexArr.length < 6) {
+  while (indexArr.length < 6) {
     let imgTwoIdx = randIdx();
     if (!indexArr.includes(imgTwoIdx)) {
       indexArr.push(imgTwoIdx);
@@ -75,17 +80,14 @@ function randImg() {
 // >>> create chart function <<<
 
 function renderChart() {
-
   const productNames = [];
   const productVotes = [];
   const productViews = [];
-
   for (let i = 0; i < productsArr.length; i++) {
     productNames.push(productsArr[i].name);
     productVotes.push(productsArr[i].clicks);
     productViews.push(productsArr[i].views);
   }
-
   let myChartObj = {
     type: 'bar',
     data: {
@@ -98,7 +100,6 @@ function renderChart() {
         ],
         borderColor: [
           '#D7B1A9'
-
         ],
         borderWidth: 10
       },
@@ -107,7 +108,6 @@ function renderChart() {
         label: '# of Views',
         backgroundColor: [
           '#9DAAE8'
-
         ],
         borderColor: [
           '#9DAAE8'
@@ -122,20 +122,32 @@ function renderChart() {
         }
       }
     }
+
   };
-
-  // calling Chart constructor, passing in the canvas element and the data Object
-  new Chart(canvasElement, myChartObj);
-
+  myChart = new Chart(canvasElement, myChartObj);
 }
 
+
+
 // >>> Create EVENT Handlers <<<
+
+function handleVoteAgain() {
+  voteCount = 5;
+  randImg();
+  imgDiv.addEventListener('click', handleClick);
+  if (voteCount === 0) {
+    imgDiv.removeEventListener('click', handleClick);
+  }
+  myChart.destroy();
+  renderChart();
+}
+
+
 
 // Events for image clicked
 function handleClick(event) {
   console.dir(event.target);
   let clickedImg = event.target.alt;
-
   // increments the clicks property of the image that was clicked
   for (let i = 0; i < productsArr.length; i++) {
     let pElem = document.createElement('p');
@@ -146,13 +158,10 @@ function handleClick(event) {
       pDivElem.appendChild(pElem);
     }
   }
-
   // decrements the number of votes
   voteCount--;
-
   // invoke the random images generator, to reload new images
   randImg();
-
   // once no more vote left, remove/end the click action
   if (voteCount === 0) {
     imgDiv.removeEventListener('click', handleClick);
@@ -167,6 +176,8 @@ function handleClick(event) {
     localStorage.setItem('myProduct', stringifiedProducts);
   }
 }
+
+
 
 // >>>>>> Local Storage <<<<<<<
 
@@ -208,3 +219,6 @@ if (retrieveProducts) {
 
 randImg();
 imgDiv.addEventListener('click', handleClick);
+voteBtn.addEventListener('click', handleVoteAgain);
+
+console.log(productsArr[0].clicks);

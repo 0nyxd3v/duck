@@ -43,10 +43,31 @@ img {
   height: 250px;
 }
 
+#vote-btn-section {
+  margin-top: 15px;
+}
+
+#vote-btn {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: rgb(190, 220, 220);
+}
+
+#vote-btn:hover {
+  box-shadow: 0 0 50px rgb(20, 55, 103);
+  transform: scale(1.01,1.01);
+}
+
+#vote-btn:active {
+  transform: scale(0.8,0.8);
+}
+
 .div-container {
   display: flex;
   justify-content: center;
   flex-direction: row;
+  padding: 100px;
 }
 
 #canvas-div {
@@ -65,5 +86,7 @@ p {
   padding: 50px;
   width: 200px;
   height: 350px;
+  
+  /* background-color: aliceblue; */
 }
 
