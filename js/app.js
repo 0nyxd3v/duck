@@ -10,6 +10,9 @@ let imgOne = document.getElementById('img1');
 let imgTwo = document.getElementById('img2');
 let imgThree = document.getElementById('img3');
 
+// grabbing vote button
+let voteBtn = document.getElementById('vote-btn');
+
 // grabbing HTML elem id
 // let pDivElem = document.getElementById('p-div').style.border = 'thick solid #d4b4ca';
 let pDivElem = document.getElementById('p-div');
@@ -131,6 +134,12 @@ function renderChart() {
 
 // >>> Create EVENT Handlers <<<
 
+function handleVoteAgain() {
+  if (voteCount === 0) {
+    randImg();
+  }
+}
+
 // Events for image clicked
 function handleClick(event) {
   console.dir(event.target);
@@ -208,3 +217,4 @@ if (retrieveProducts) {
 
 randImg();
 imgDiv.addEventListener('click', handleClick);
+voteBtn.addEventListener('click', handleVoteAgain);
