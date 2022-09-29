@@ -135,15 +135,17 @@ function renderChart() {
 // >>> Create EVENT Handlers <<<
 
 function handleVoteAgain() {
+  voteCount = 5;
   randImg();
   imgDiv.addEventListener('click', handleClick);
 
 
-  // if (voteCount === 0) {
-  //   // randImg();
-  //   // imgDiv.removeEventListener('click', handleClick);
+  if (voteCount === 0) {
+    // randImg();
+    imgDiv.removeEventListener('click', handleClick);
+    renderChart();
 
-  // }
+  }
 }
 
 // Events for image clicked
