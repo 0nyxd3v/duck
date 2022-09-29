@@ -1,7 +1,7 @@
 'use strict';
 
 // >>> Create GLOBAL variables <<<
-let voteCount = 5;
+let voteCount = 25;
 let productsArr = [];
 let myChart;
 
@@ -135,7 +135,7 @@ function renderChart() {
 function handleVoteAgain() {
 
   // reassigning vote back to this number
-  voteCount = 5;
+  voteCount = 25;
   randImg();
   // message();
   imgDiv.addEventListener('click', handleClick);
