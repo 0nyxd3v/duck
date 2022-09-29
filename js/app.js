@@ -80,19 +80,14 @@ function randImg() {
 // >>> create chart function <<<
 
 function renderChart() {
-
-
   const productNames = [];
   const productVotes = [];
   const productViews = [];
-
   for (let i = 0; i < productsArr.length; i++) {
     productNames.push(productsArr[i].name);
     productVotes.push(productsArr[i].clicks);
     productViews.push(productsArr[i].views);
   }
-
-
   let myChartObj = {
     type: 'bar',
     data: {
@@ -105,7 +100,6 @@ function renderChart() {
         ],
         borderColor: [
           '#D7B1A9'
-
         ],
         borderWidth: 10
       },
@@ -114,7 +108,6 @@ function renderChart() {
         label: '# of Views',
         backgroundColor: [
           '#9DAAE8'
-
         ],
         borderColor: [
           '#9DAAE8'
@@ -131,9 +124,7 @@ function renderChart() {
     }
 
   };
-
   myChart = new Chart(canvasElement, myChartObj);
-
 }
 
 
@@ -141,14 +132,10 @@ function renderChart() {
 // >>> Create EVENT Handlers <<<
 
 function handleVoteAgain() {
-  // myChart.destroy();
   voteCount = 5;
   randImg();
   imgDiv.addEventListener('click', handleClick);
-
-
   if (voteCount === 0) {
-    // randImg();
     imgDiv.removeEventListener('click', handleClick);
   }
   myChart.destroy();
@@ -157,14 +144,10 @@ function handleVoteAgain() {
 
 
 
-
-
-
 // Events for image clicked
 function handleClick(event) {
   console.dir(event.target);
   let clickedImg = event.target.alt;
-
   // increments the clicks property of the image that was clicked
   for (let i = 0; i < productsArr.length; i++) {
     let pElem = document.createElement('p');
@@ -175,18 +158,14 @@ function handleClick(event) {
       pDivElem.appendChild(pElem);
     }
   }
-
   // decrements the number of votes
   voteCount--;
-
   // invoke the random images generator, to reload new images
   randImg();
-
   // once no more vote left, remove/end the click action
   if (voteCount === 0) {
     imgDiv.removeEventListener('click', handleClick);
     renderChart();
-    // let myChart = renderChart();
 
     // >>> Local Storage <<<
 
@@ -197,6 +176,8 @@ function handleClick(event) {
     localStorage.setItem('myProduct', stringifiedProducts);
   }
 }
+
+
 
 // >>>>>> Local Storage <<<<<<<
 
@@ -241,68 +222,3 @@ imgDiv.addEventListener('click', handleClick);
 voteBtn.addEventListener('click', handleVoteAgain);
 
 console.log(productsArr[0].clicks);
-
-
-
-
-
-// function renderChart() {
-
-// const productNames = [];
-// const productVotes = [];
-// const productViews = [];
-
-// for (let i = 0; i < productsArr.length; i++) {
-//   productNames.push(productsArr[i].name);
-//   productVotes.push(productsArr[i].clicks);
-//   productViews.push(productsArr[i].views);
-// }
-
-// let myChartObj = {
-//   type: 'bar',
-//   data: {
-//     labels: productNames,
-//     datasets: [{
-//       data: productVotes,
-//       label: '# of Votes',
-//       backgroundColor: [
-//         '#D7B1A9',
-//       ],
-//       borderColor: [
-//         '#D7B1A9'
-
-//       ],
-//       borderWidth: 10
-//     },
-//     {
-//       data: productViews,
-//       label: '# of Views',
-//       backgroundColor: [
-//         '#9DAAE8'
-
-//       ],
-//       borderColor: [
-//         '#9DAAE8'
-//       ],
-//       borderWidth: 10
-//     }]
-//   },
-//   options: {
-//     scales: {
-//       y: {
-//         beginAtZero: true
-//       }
-//     }
-//   }
-
-// };
-
-// return myChartObj;
-
-// calling Chart constructor, passing in the canvas element and the data Object
-// new Chart(canvasElement, myChartObj);
-
-// }
-
-
-
