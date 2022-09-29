@@ -1,7 +1,7 @@
 'use strict';
 
 // >>> Create GLOBAL variables <<<
-let voteCount = 25;
+let voteCount = 5;
 let productsArr = [];
 
 // >>> DOM Manipulation <<<
@@ -135,9 +135,15 @@ function renderChart() {
 // >>> Create EVENT Handlers <<<
 
 function handleVoteAgain() {
-  if (voteCount === 0) {
-    randImg();
-  }
+  randImg();
+  imgDiv.addEventListener('click', handleClick);
+
+
+  // if (voteCount === 0) {
+  //   // randImg();
+  //   // imgDiv.removeEventListener('click', handleClick);
+
+  // }
 }
 
 // Events for image clicked
