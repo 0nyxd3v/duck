@@ -11,7 +11,8 @@ let imgTwo = document.getElementById('img2');
 let imgThree = document.getElementById('img3');
 
 // grabbing HTML elem id
-let pDivElem = document.getElementById('p-div').style.border = 'thick solid #d4b4ca';
+// let pDivElem = document.getElementById('p-div').style.border = 'thick solid #d4b4ca';
+let pDivElem = document.getElementById('p-div');
 
 // >>> canvas element for the chart to render to
 let canvasElement = document.getElementById('my-chart').getContext('2d');
@@ -28,7 +29,6 @@ function Products(name, fileExtension = 'jpg') {
 
 // >>> Create HELPER functions <<<
 
-// const slicedArr = indexArr.slice(0, 3);
 
 // function that generates random index of productsArr
 // MDN web docs
