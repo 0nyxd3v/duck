@@ -47,6 +47,7 @@ img {
   display: flex;
   justify-content: center;
   flex-direction: row;
+  padding: 100px;
 }
 
 #canvas-div {
@@ -65,5 +66,7 @@ p {
   padding: 50px;
   width: 200px;
   height: 350px;
+  
+  background-color: aliceblue;
 }
 

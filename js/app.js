@@ -11,7 +11,7 @@ let imgTwo = document.getElementById('img2');
 let imgThree = document.getElementById('img3');
 
 // grabbing HTML elem id
-let pDivElem = document.getElementById('p-div');
+let pDivElem = document.getElementById('p-div').style.border = 'thick solid #d4b4ca';
 
 // >>> canvas element for the chart to render to
 let canvasElement = document.getElementById('my-chart').getContext('2d');
