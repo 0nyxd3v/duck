@@ -15,12 +15,13 @@ let imgThree = document.getElementById('img3');
 // grabbing vote button
 let voteBtn = document.getElementById('vote-btn');
 
-// grabbing HTML elem id
-// let pDivElem = document.getElementById('p-div').style.border = 'thick solid #d4b4ca';
+// grabbing HTML elem id for <p>
 let pDivElem = document.getElementById('p-div');
+let pElem = document.createElement('p');
 
 // >>> canvas element for the chart to render to
 let canvasElement = document.getElementById('my-chart').getContext('2d');
+
 
 // >>> Create Constructors <<<
 function Products(name, fileExtension = 'jpg') {
@@ -32,8 +33,8 @@ function Products(name, fileExtension = 'jpg') {
   productsArr.push(this);
 }
 
-// >>> Create HELPER functions <<<
 
+// >>> Create HELPER functions <<<
 
 // function that generates random index of productsArr
 // MDN web docs
@@ -132,25 +133,29 @@ function renderChart() {
 // >>> Create EVENT Handlers <<<
 
 function handleVoteAgain() {
+
+  // reassigning vote back to this number
   voteCount = 5;
   randImg();
+  // message();
   imgDiv.addEventListener('click', handleClick);
   if (voteCount === 0) {
     imgDiv.removeEventListener('click', handleClick);
   }
+  /* worked with TA Joel, removing the initial display of chart,
+   removes the initial chart data*/
   myChart.destroy();
   renderChart();
 }
-
 
 
 // Events for image clicked
 function handleClick(event) {
   console.dir(event.target);
   let clickedImg = event.target.alt;
+  pElem.textContent = '';
   // increments the clicks property of the image that was clicked
   for (let i = 0; i < productsArr.length; i++) {
-    let pElem = document.createElement('p');
     pElem.textContent = '';
     if (productsArr[i].name === clickedImg) {
       productsArr[i].clicks++;
