@@ -3,6 +3,8 @@
 // >>> Create GLOBAL variables <<<
 let voteCount = 5;
 let productsArr = [];
+let myChart;
+
 
 // >>> DOM Manipulation <<<
 let imgDiv = document.getElementById('img-div'); // images container
@@ -80,60 +82,59 @@ function randImg() {
 function renderChart() {
 
 
-}
+  const productNames = [];
+  const productVotes = [];
+  const productViews = [];
 
-
-const productNames = [];
-const productVotes = [];
-const productViews = [];
-
-for (let i = 0; i < productsArr.length; i++) {
-  productNames.push(productsArr[i].name);
-  productVotes.push(productsArr[i].clicks);
-  productViews.push(productsArr[i].views);
-}
-
-
-let myChartObj = {
-  type: 'bar',
-  data: {
-    labels: productNames,
-    datasets: [{
-      data: productVotes,
-      label: '# of Votes',
-      backgroundColor: [
-        '#D7B1A9',
-      ],
-      borderColor: [
-        '#D7B1A9'
-
-      ],
-      borderWidth: 10
-    },
-    {
-      data: productViews,
-      label: '# of Views',
-      backgroundColor: [
-        '#9DAAE8'
-
-      ],
-      borderColor: [
-        '#9DAAE8'
-      ],
-      borderWidth: 10
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
+  for (let i = 0; i < productsArr.length; i++) {
+    productNames.push(productsArr[i].name);
+    productVotes.push(productsArr[i].clicks);
+    productViews.push(productsArr[i].views);
   }
 
-};
 
-let myChart = new Chart(canvasElement, myChartObj);
+  let myChartObj = {
+    type: 'bar',
+    data: {
+      labels: productNames,
+      datasets: [{
+        data: productVotes,
+        label: '# of Votes',
+        backgroundColor: [
+          '#D7B1A9',
+        ],
+        borderColor: [
+          '#D7B1A9'
+
+        ],
+        borderWidth: 10
+      },
+      {
+        data: productViews,
+        label: '# of Views',
+        backgroundColor: [
+          '#9DAAE8'
+
+        ],
+        borderColor: [
+          '#9DAAE8'
+        ],
+        borderWidth: 10
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+
+  };
+
+  myChart = new Chart(canvasElement, myChartObj);
+
+}
 
 
 
@@ -150,8 +151,14 @@ function handleVoteAgain() {
     // randImg();
     imgDiv.removeEventListener('click', handleClick);
   }
-  // renderChart();
+  myChart.destroy();
+  renderChart();
 }
+
+
+
+
+
 
 // Events for image clicked
 function handleClick(event) {
@@ -178,8 +185,7 @@ function handleClick(event) {
   // once no more vote left, remove/end the click action
   if (voteCount === 0) {
     imgDiv.removeEventListener('click', handleClick);
-    // renderChart();
-    myChart.update();
+    renderChart();
     // let myChart = renderChart();
 
     // >>> Local Storage <<<
