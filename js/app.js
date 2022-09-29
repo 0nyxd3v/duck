@@ -137,26 +137,25 @@ function handleVoteAgain() {
   // reassigning vote back to this number
   voteCount = 5;
   randImg();
+  // message();
   imgDiv.addEventListener('click', handleClick);
   if (voteCount === 0) {
     imgDiv.removeEventListener('click', handleClick);
-    pElem.textContent = '';
-    pDivElem.appendChild(pElem);
   }
-  // worked with TA Joel
+  /* worked with TA Joel, removing the initial display of chart,
+   removes the initial chart data*/
   myChart.destroy();
   renderChart();
 }
-
 
 
 // Events for image clicked
 function handleClick(event) {
   console.dir(event.target);
   let clickedImg = event.target.alt;
+  pElem.textContent = '';
   // increments the clicks property of the image that was clicked
   for (let i = 0; i < productsArr.length; i++) {
-    // let pElem = document.createElement('p');
     pElem.textContent = '';
     if (productsArr[i].name === clickedImg) {
       productsArr[i].clicks++;
