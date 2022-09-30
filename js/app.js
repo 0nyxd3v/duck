@@ -136,9 +136,11 @@ function handleVoteAgain() {
 
   // reassigning vote back to this number
   voteCount = 25;
+  // generates another 3 images
   randImg();
-  // message();
+  // listen to the image clicks
   imgDiv.addEventListener('click', handleClick);
+  // removes listener once voteCount reaches 0
   if (voteCount === 0) {
     imgDiv.removeEventListener('click', handleClick);
   }
