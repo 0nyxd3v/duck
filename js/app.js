@@ -158,10 +158,10 @@ function handleClick(event) {
   pElem.textContent = '';
   // increments the clicks property of the image that was clicked
   for (let i = 0; i < productsArr.length; i++) {
-    pElem.textContent = '';
+    // pElem.textContent = '';
     if (productsArr[i].name === clickedImg) {
       productsArr[i].clicks++;
-      pElem.textContent = `You picked ${productsArr[i].name}`;
+      pElem.textContent = `${productsArr[i].name} # of votes: ${productsArr[i].clicks}`;
       pDivElem.appendChild(pElem);
     }
   }
