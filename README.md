@@ -24,8 +24,18 @@ You are also responsible for the look and feel of the app, so don’t forget a c
 
 - [Lab: Class 11](https://codefellows.github.io/code-201-guide/curriculum/class-11/lab/)
 - Images Pull Request from Ms. Audrey
+- Class 12 Lectures
+- Class 13 Lectures
+  - JSON.parse()
+  - Local Storage uilt-in methods
+- TA / Instructors
 
 ## Lab 12
 
 - Adding Chart to Project that will replace list elements
 - updating while loop condition to display three unique images in two subsequent iterations
+
+## Lab 13
+
+- Implement Local Storage into the application
+- Data persists across both browser refreshes and resets
