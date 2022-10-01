@@ -15,10 +15,6 @@ let imgThree = document.getElementById('img3');
 // grabbing vote button
 let voteBtn = document.getElementById('vote-btn');
 
-// grabbing HTML elem id for <p>
-let pDivElem = document.getElementById('p-div');
-let pElem = document.createElement('p');
-
 // >>> canvas element for the chart to render to
 let canvasElement = document.getElementById('my-chart').getContext('2d');
 
@@ -155,14 +151,10 @@ function handleVoteAgain() {
 function handleClick(event) {
   console.dir(event.target);
   let clickedImg = event.target.alt;
-  pElem.textContent = '';
-  // increments the clicks property of the image that was clicked
+  // for loop to iterate through the array, and increment clicks on the image clicked
   for (let i = 0; i < productsArr.length; i++) {
-    // pElem.textContent = '';
     if (productsArr[i].name === clickedImg) {
       productsArr[i].clicks++;
-      pElem.textContent = `${productsArr[i].name} # of votes: ${productsArr[i].clicks}`;
-      pDivElem.appendChild(pElem);
     }
   }
   // decrements the number of votes
