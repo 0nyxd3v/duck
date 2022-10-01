@@ -20,16 +20,6 @@ The marketing team is not only interested in the total number of clicks, but als
 
 You are also responsible for the look and feel of the app, so don’t forget a custom font, color palette, layout with semantic HTML, and so on.
 
-## Resources
-
-- [Lab: Class 11](https://codefellows.github.io/code-201-guide/curriculum/class-11/lab/)
-- Images Pull Request from Ms. Audrey
-- Class 12 Lectures
-- Class 13 Lectures
-  - JSON.parse()
-  - Local Storage uilt-in methods
-- TA / Instructors
-
 ## Lab 12
 
 - Adding Chart to Project that will replace list elements
@@ -39,3 +29,19 @@ You are also responsible for the look and feel of the app, so don’t forget a c
 
 - Implement Local Storage into the application
 - Data persists across both browser refreshes and resets
+
+## Lab 15b
+
+- Removed unnecessary / commented code
+- Add Final touches
+
+## Resources
+
+- [Lab: Class 11](https://codefellows.github.io/code-201-guide/curriculum/class-11/lab/)
+- Images Pull Request from Ms. Audrey
+- Class 12 Lectures
+- Class 13 Lectures
+  - JSON.parse()
+  - [Local Storage uilt-in methods](https://www.smashingmagazine.com/2010/10/local-storage-and-how-to-use-it/)
+  - [Chart.js](https://www.chartjs.org/)
+- TA / Instructors
